@@ -1,0 +1,42 @@
+﻿@model NurseryExample3.Models.NurseryProduct
+
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            @using (Html.BeginForm())
+            {
+                <div class="mb-2">
+                    @Html.LabelFor(p => p.Name)
+                    @Html.TextBoxFor(p => p.Name, new { @class = "form-control" })
+                </div>
+                <div class="mb-2">
+                    @Html.LabelFor(p => p.Price)
+                    @Html.TextBoxFor(p => p.Price, new { @class = "form-control" })
+                </div>
+                <div class="mb-2">
+                    @Html.LabelFor(p => p.Description )
+                    @Html.TextBoxFor(p => p.Description, new { @class = "form-control" })
+                </div>
+                <div class="mb-2">
+                    @Html.LabelFor(p => p.NurseryCategoryId)
+                    @Html.DropDownListFor(p => p.NurseryCategoryId, new SelectList(ViewBag.Categories, "Id", "Name"), new { @class = "form-select" })
+                </div>
+                <div class="mb-2">
+                    @Html.LabelFor(p => p.IsAvailable)
+                   @Html.CheckBox(" ")
+                </div>
+                <div class="mb-2">
+                    <button type="submit" class="btn btn-outline-primary">Save</button>
+                    <button type="reset" class="btn btn-danger">Reset</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
